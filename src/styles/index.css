@@ -78,11 +78,11 @@ input {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: space-between;
+  align-items: end;
+  justify-ontent: space-between;
 }
 .left-icon {
   height: 9%;
-  text-align: right;
   padding: 0.7rem 2rem;
 }
 
@@ -429,7 +429,7 @@ button:hover {
   color: var(--gray);
 }
 
-.post-card .post-text{
+.post-card .post-text {
   padding-bottom: 1rem;
 }
 
