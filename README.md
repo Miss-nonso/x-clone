@@ -54,7 +54,11 @@ A feature-rich Twitter clone built using **React**, **TailwindCSS**, and **React
 - **Profile Page**: View and manage user profiles (To be implemented)
 - etc
 
+---------
 
+### Find an Overview of the project's objectives, pain points, challenges, version 2.0 features and the approach  here 👉 [https://acrobat.adobe.com/id/urn:aaid:sc:EU:dbe75edf-39cb-49ef-bff5-04570eea02ec](https://acrobat.adobe.com/id/urn:aaid:sc:EU:dbe75edf-39cb-49ef-bff5-04570eea02ec)
+
+---------
 
 ## License 📜
 
