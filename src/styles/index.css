@@ -68,6 +68,7 @@ input {
 .main {
   margin-left: 15%;
   min-width: 46%;
+  min-height: 100vh;
   border-inline: 1px solid var(--gray);
 }
 
