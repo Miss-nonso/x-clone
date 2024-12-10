@@ -54,7 +54,11 @@ A feature-rich Twitter clone built using **React**, **TailwindCSS**, and **React
 - **Profile Page**: View and manage user profiles (To be implemented)
 - etc
 
+---------
 
+### Find an Overview of the project's objectives, pain points, challneges, version 2.0 features and the approach  here 👉 [https://docs.google.com/document/d/1KiKP5aTBoPueXD0N8A8R2nNZm-gE--o_bL_ChojLyWw/edit?tab=t.0](https://docs.google.com/document/d/1KiKP5aTBoPueXD0N8A8R2nNZm-gE--o_bL_ChojLyWw/edit?tab=t.0)
+
+---------
 
 ## License 📜
 
