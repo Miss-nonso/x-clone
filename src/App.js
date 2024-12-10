@@ -15,21 +15,18 @@ import Sidebar from "./components/RightSidebar";
 function App() {
   const { currentUser } = useAuth();
   const currentPath = window.location.href;
-  // console.log({ currentUser: currentUser.length });
 
   if (currentUser === undefined) {
     return <div>Loading...</div>;
   }
 
-  // console.log({ currentPath: currentPath.includes("signup") });
   return (
     <Router>
       <div className="mx-auto p-4">
-        {currentPath.includes("login" || "signup" || "*") === false && (
+        {/* {currentPath.includes("login" || "signup" || "*") === true && (
           <Navbar />
-        )}
-        {/* {currentUser && <Sidebar />} */}
-        {/* <Navbar /> */}
+        )} */}
+
         <Routes>
           {currentUser ? (
             <>

@@ -36,6 +36,9 @@ import { listenToPosts } from "../services/tweetService";
 import PostCard from "../components/PostCard";
 import TweetInput from "../components/TweetInput";
 import { Link } from "react-router-dom";
+import LeftSidebar from "../components/LeftSidebar";
+import RightSidebar from "../components/RightSidebar";
+import Navbar from "../components/Navbar";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
@@ -46,22 +49,30 @@ function Feed() {
   }, []);
 
   return (
-    <div className="tweets">
-      <div className="tweet-container">
-        <img src="./x-logo.png" alt="" />
-        <div className="wrapper">
-          <TweetInput />
+    <div className="user-container">
+      <LeftSidebar />{" "}
+      <div className="main">
+        {" "}
+        <Navbar />
+        <div className="tweets">
+          <div className="tweet-container">
+            <img src="./x-logo.png" alt="" />
+            <div className="wrapper">
+              <TweetInput />
+            </div>
+          </div>
+          <div className="show-post-wrapper">
+            <Link href="#">Show 768 posts</Link>
+          </div>
+          {posts
+            .slice()
+            .reverse()
+            .map((post) => (
+              <PostCard key={post.id} post={post} />
+            ))}
         </div>
       </div>
-      <div className="show-post-wrapper">
-        <Link href="#">Show 768 posts</Link>
-      </div>
-      {posts
-        .slice()
-        .reverse()
-        .map((post) => (
-          <PostCard key={post.id} post={post} />
-        ))}
+      <RightSidebar />
     </div>
   );
 }

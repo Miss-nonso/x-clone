@@ -5,9 +5,9 @@ const LeftSidebar = () => {
   return (
     <aside className="left-container">
       {leftMenu.map((menu, idx) => (
-        <div className="left-icon">
+        <div className="left-icon" key={idx}>
           {" "}
-          <a href={menu.href} key={idx}>
+          <a href={menu.href}>
             <img
               src={menu.icon}
               alt={`${menu.title} icon`}

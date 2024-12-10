@@ -34,9 +34,9 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 
-// import Navbar from "../components/Navbar";
-import LeftSidebar from "../components/LeftSidebar";
-import RightSidebar from "../components/RightSidebar";
+// // import Navbar from "../components/Navbar";
+// import LeftSidebar from "../components/LeftSidebar";
+// import RightSidebar from "../components/RightSidebar";
 import LoaderSVG from "../assets/images/loader";
 
 const AuthContext = createContext();
@@ -57,13 +57,15 @@ export function AuthProvider({ children }) {
 
   loading && <LoaderSVG />;
 
+  const currentPath = window.location.href.includes("login" || "signup" || "*");
+
   return (
     <AuthContext.Provider value={{ currentUser, logout }}>
       {!loading && (
-        <div className="user-container">
-          <LeftSidebar />
-          <div className="main"> {children}</div>
-          <RightSidebar />
+        <div>
+          {/* {currentPath && <LeftSidebar />} */}
+          <div> {children}</div>
+          {/* {currentPath && <RightSidebar />} */}
         </div>
       )}
     </AuthContext.Provider>

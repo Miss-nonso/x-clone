@@ -6,7 +6,7 @@ const Landing = () => {
       <div className="x-logo-wrapper">
         <img src="./x-logo.png" alt="X icon" className="x-logo" />
       </div>
-      <div className="landing-wrapper">
+      <div className="landing-wrapper" id="landing-wrapper">
         <h2>Happening now</h2>
         <h4>Join today.</h4>
         <div className="landing-links-container">
