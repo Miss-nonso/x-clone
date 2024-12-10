@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { createTweet } from "../services/tweetService";
 import { useAuth } from "../context/AuthContext";
-import { downArrow } from "../assets/images/downArrow";
+import { downArrow } from "../assets/images/images";
 import { tweetIcons } from "../assets/images/tweetIcons";
-
 
 function TweetInput() {
   const [content, setContent] = useState("");

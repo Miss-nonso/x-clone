@@ -428,6 +428,10 @@ button:hover {
   color: var(--gray);
 }
 
+.post-card .post-text{
+  padding-bottom: 1rem;
+}
+
 .interaction-btn-wrapper {
   display: flex;
   justify-content: space-between;
