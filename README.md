@@ -56,7 +56,7 @@ A feature-rich Twitter clone built using **React**, **TailwindCSS**, and **React
 
 ---------
 
-### Find an Overview of the project's objectives, pain points, challneges, version 2.0 features and the approach  here 👉 [https://docs.google.com/document/d/1KiKP5aTBoPueXD0N8A8R2nNZm-gE--o_bL_ChojLyWw/edit?tab=t.0](https://docs.google.com/document/d/1KiKP5aTBoPueXD0N8A8R2nNZm-gE--o_bL_ChojLyWw/edit?tab=t.0)
+### Find an Overview of the project's objectives, pain points, challneges, version 2.0 features and the approach  here 👉 [https://acrobat.adobe.com/id/urn:aaid:sc:EU:dbe75edf-39cb-49ef-bff5-04570eea02ec](https://acrobat.adobe.com/id/urn:aaid:sc:EU:dbe75edf-39cb-49ef-bff5-04570eea02ec)
 
 ---------
 
