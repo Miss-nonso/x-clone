@@ -2,12 +2,29 @@ import { useState } from "react";
 import { createTweet } from "../services/tweetService";
 import { useAuth } from "../context/AuthContext";
 import { downArrow } from "../assets/images/downArrow";
-import { icon } from "@fortawesome/fontawesome-svg-core";
 import { tweetIcons } from "../assets/images/tweetIcons";
+
 
 function TweetInput() {
   const [content, setContent] = useState("");
   const { currentUser } = useAuth();
+
+  const [imagePreview, setImagePreview] = useState(null);
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleClick = () => {
+    document.getElementById("image-upload").click();
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,18 +55,44 @@ function TweetInput() {
         <img src="./logo192.png" alt="World" />
         Everyone can reply
       </div>
+      <input
+        type="file"
+        id="image-upload"
+        style={{ display: "none" }}
+        accept="image/*"
+        onChange={handleImageUpload}
+      />
+      {imagePreview && (
+        <img
+          src={imagePreview}
+          alt="preview"
+          style={{ width: "100%", borderRadius: "10px", height: "15rem" }}
+        />
+      )}
+
       <div className="icons-and-submit-wrapper">
         <div className="icons-wrapper">
-          {tweetIcons.map((icon, idx) => (
-            <img
-              src={icon.icon}
-              alt={icon.title}
-              key={idx}
-              style={{ height: "2rem" }}
-            />
-          ))}
+          {tweetIcons.map((icon, idx) =>
+            icon.title !== "image" ? (
+              <img
+                src={icon.icon}
+                alt={icon.title}
+                key={idx}
+                style={{ height: "2rem" }}
+              />
+            ) : (
+              <img
+                src={icon.icon}
+                alt={icon.title}
+                key={idx}
+                style={{ height: "2rem" }}
+                onClick={handleClick}
+              />
+            )
+          )}
         </div>
-        {content ? (
+
+        {content || imagePreview ? (
           <button type="submit">Tweet</button>
         ) : (
           <button type="submit" disabled>

@@ -57,7 +57,7 @@ export function AuthProvider({ children }) {
 
   loading && <LoaderSVG />;
 
-  const currentPath = window.location.href.includes("login" || "signup" || "*");
+  // const currentPath = window.location.href.includes("login" || "signup" || "*");
 
   return (
     <AuthContext.Provider value={{ currentUser, logout }}>
