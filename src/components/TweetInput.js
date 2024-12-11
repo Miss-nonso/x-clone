@@ -30,7 +30,7 @@ function TweetInput() {
     if (!content.trim()) return alert("Tweet cannot be empty");
 
     try {
-      await createTweet(content, currentUser.uid);
+      await createTweet(content, imagePreview || "", currentUser.uid);
       setContent(" ");
     } catch (error) {
       console.error("Error creating tweet:", error);

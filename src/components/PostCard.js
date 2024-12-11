@@ -12,7 +12,7 @@ function PostCard({ post }) {
           <p>@username</p> <span>. 14h</span>
         </div>
         <p className="post-text">{post.content}</p>
-        {/* <img src={post.img} alt={`${post.userId}`} /> */}
+        {post.img && <img src={post.img} alt={`${post.userId}`} />}
         <div className="interaction-btn-wrapper">
           <span> 2.7k</span>
           <span> 10k</span>

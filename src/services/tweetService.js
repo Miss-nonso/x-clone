@@ -8,9 +8,10 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 
-export async function createTweet(content, userId) {
+export async function createTweet(content, img, userId) {
   return await addDoc(collection(db, "posts"), {
     content,
+    img,
     userId,
     createdAt: new Date(),
     likes: 0,
