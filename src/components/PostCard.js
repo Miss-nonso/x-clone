@@ -1,3 +1,8 @@
+import { comment } from "../assets/images/images";
+import { retweet } from "../assets/images/images";
+import { heart } from "../assets/images/images";
+import { analytics } from "../assets/images/images";
+
 function PostCard({ post }) {
   return (
     <div className="post-card">
@@ -7,17 +12,34 @@ function PostCard({ post }) {
         <div className="user-details">
           {" "}
           <h3>
-            Display name <span>☑️</span>
+            {post["display-name"]} <span>☑️</span>
           </h3>{" "}
-          <p>@username</p> <span>. 14h</span>
+          <p> @{post.username}</p> <span>. 14h</span>
         </div>
         <p className="post-text">{post.content}</p>
-        {post.img && <img src={post.img} alt={`${post.userId}`} />}
+        {post["content-img"] && (
+          <img src={post["content-img"]} alt={`${post.userId}`} />
+        )}
         <div className="interaction-btn-wrapper">
-          <span> 2.7k</span>
-          <span> 10k</span>
-          <span> 35k</span>
-          <span> 2k</span>
+          <button className="interaction-btn">
+            {" "}
+            <img src={comment} alt="comment icon" />{" "}
+            {post.comments
+              ? post.comments.length
+              : Math.round(Math.random() * 11)}
+          </button>
+          <button className="interaction-btn">
+            {" "}
+            <img src={retweet} alt="retweet icon" /> {post.shares}k
+          </button>
+          <button className="interaction-btn">
+            {" "}
+            <img src={heart} alt="like icon" /> {post.likes}
+          </button>
+          <button className="interaction-btn">
+            {" "}
+            {analytics} {post.analytics}
+          </button>
         </div>
       </div>
       <span className="three-dots">...</span>

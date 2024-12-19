@@ -7,18 +7,33 @@ import { tweetIcons } from "../assets/images/tweetIcons";
 function TweetInput() {
   const [content, setContent] = useState("");
   const { currentUser } = useAuth();
+  // console.log({ currentUser });
 
   const [imagePreview, setImagePreview] = useState(null);
 
-  const handleImageUpload = (event) => {
+  const handleImageUpload = async (event) => {
     const file = event.target.files[0];
     if (file) {
+      const maxSize = 1 * 1024 * 1024;
+      if (file.size > maxSize) {
+        alert("Sorry, File size must be less than 1MB!");
+        return;
+      }
+
       const reader = new FileReader();
       reader.onload = () => {
         setImagePreview(reader.result);
       };
       reader.readAsDataURL(file);
     }
+
+    // if (file) {
+    //   const reader = new FileReader();
+    //   reader.onload = () => {
+    //     setImagePreview(reader.result);
+    //   };
+    //   reader.readAsDataURL(file);
+    // }
   };
 
   const handleClick = () => {
@@ -30,7 +45,19 @@ function TweetInput() {
     if (!content.trim()) return alert("Tweet cannot be empty");
 
     try {
-      await createTweet(content, imagePreview || "", currentUser.uid);
+      await createTweet({
+        content,
+        createdAt: new Date(),
+        "content-img": imagePreview || "",
+        userId: currentUser.uid,
+        "display-name": "Mike Amber",
+        username: "rushmike",
+        likes: Math.round(Math.random() * 11),
+        shares: Math.round(Math.random() * 11),
+        analytics: Math.round(Math.random() * 11),
+        "profile-img": "",
+        reply: []
+      });
       setContent(" ");
     } catch (error) {
       console.error("Error creating tweet:", error);
@@ -39,12 +66,12 @@ function TweetInput() {
 
   return (
     <form onSubmit={handleSubmit} className="tweet-form">
-      <span className="everyone">
+      <button className="everyone" type="#">
         Everyone{" "}
         <span>
           <img src={downArrow} alt="arrow icon" style={{ width: "25px" }} />
         </span>
-      </span>
+      </button>
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
@@ -92,10 +119,10 @@ function TweetInput() {
         </div>
 
         {content || imagePreview ? (
-          <button type="submit">Tweet</button>
+          <button type="submit">Post</button>
         ) : (
           <button type="submit" disabled>
-            Tweet
+            Post
           </button>
         )}
       </div>
